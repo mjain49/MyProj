@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+h1{
+	color: black;
+}
+h2{
+	color:white;
+}
+#mainCnt{
+	margin: 0px;
+	margin-top:50px;
+	margin-left:200px;
+	width: 800px;
+	font-family:Calibri;
+}
+
+#footer{
+	background-color: black;
+	color:white;
+	font-weight: bold;
+	font-style:italic;
+	font-size:12px;
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid;
+	border-top-color: white;
+}
+
+
+
+.errMessage{
+	color:red;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 14px;
+}
+h3{
+	color: black;
+}
+.btn{
+
+	padding: 5px 10px 5px 10px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+
+</style>
+<script type="text/javascript">
+function validateForm(){
+	var ufname=myform.firstName.value;
+	var ulname=myform.lastName.value;
+	var umobile=myform.mobileNo.value;
+	var uaddress=myform.address.value;
+	var uemail=myform.email.value;
+	var upassword=myform.password.value;
+	var uconfirmpassword=myform.uconfirmpassword.value;
+	var ufsq=myform.firstSecurityQuestion.value;
+	var ussq=myform.secondSecurityQuestion.value;
+	
+	var flag=false;
+	if(ufname==""||ufname==null){
+		document.getElementById('fnameErrMsg').innerHTML="*Please Enter First Name";
+		
+	}
+	else if(ulname==""||ulname==null){
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="*Please Enter Last Name";
+		
+	}
+	else if(umobile==""||umobile==null){
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="*Please Enter Mobile Number";
+		
+	}
+	else if(uaddress=="" || uaddress==null)
+		{
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="*Please Enter Address";
+		}
+	else if(uemail=="" || uemail==null)
+	{
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('mailErrMsg').innerHTML="*Please Enter mail";
+	}
+	else if(upassword=="" || upassword==null)
+	{
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('mailErrMsg').innerHTML="";
+		document.getElementById('passErrMsg').innerHTML="*Please Enter Password";
+	}
+	else if(upassword=="" || upassword==null)
+	{
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('mailErrMsg').innerHTML="";
+		document.getElementById('passErrMsg').innerHTML="";
+		document.getElementById('cpassErrMsg').innerHTML="*Please Enter Confirm Password";
+	}
+	else if(ufsq=="" || ufsq==null)
+	{
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('mailErrMsg').innerHTML="";
+		document.getElementById('passErrMsg').innerHTML="";
+		document.getElementById('cpassErrMsg').innerHTML="";
+		document.getElementById('fsqErrMsg').innerHTML="*Please Enter Answer for First Security Question";
+	}
+	else if(ussq=="" || ussq==null)
+	{
+		flag=false;
+		document.getElementById('fnameErrMsg').innerHTML="";
+		document.getElementById('lnameErrMsg').innerHTML="";
+		document.getElementById('mobileErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('mailErrMsg').innerHTML="";
+		document.getElementById('passErrMsg').innerHTML="";
+		document.getElementById('cpassErrMsg').innerHTML="";
+		document.getElementById('fsqErrMsg').innerHTML="";
+		document.getElementById('ssqErrMsg').innerHTML="*Please Enter Answer for Second Security Question";
+	}
+	else if(ufname=="Mayur" && ulname="Jain" && u && uaddress=="Capgemini"
+		&& umarks=="100"&& ugender=="Male"){
+		flag=true;
+		document.getElementById('nameErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('markErrMsg').innerHTML="";
+		document.getElementById('genderErrMsg').innerHTML="";
+		}
+	else{
+		flag=false;
+		document.getElementById('nameErrMsg').innerHTML="";
+		document.getElementById('addressErrMsg').innerHTML="";
+		document.getElementById('markErrMsg').innerHTML="";
+		document.getElementById('genderErrMsg').innerHTML="";
+		alert('*Please Enter Valid Details');
+	}
+	
+	if(flag)
+		window.location.href = "success.html";
+	
+	return flag;
+}
+</script>
+
+</head>
+
+<form name="myform"  method="post">
+        <table border="2" align="center">
+        	<tr>
+				<th colspan="3" style="color:red;">User Form </th>
+			</tr>
+            <tr>
+                <td>
+                    Enter First Name
+                </td>
+                <td>
+                    <input type="text" maxlength="20" pattern="([a-zA-Z])*" id="firstName" name="firstName" required>
+                </td>
+                <td>
+				<div id="fnameErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Last Name
+                </td>
+                <td>
+                    <input type="text" maxlength="20" pattern="([a-zA-Z])*" id="lastName" name="lastName" required>
+                </td>
+                <td>
+				<div id="lnameErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Mobile Number
+                </td>
+                <td>
+                    <input type="number" pattern="[1-9][0-9]{9}" id="mobileNo" name="mobileNo" required>
+                </td>
+                <td>
+				<div id="mobileErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Address
+                </td>
+                <td>
+                    <textarea id="address" maxlength="150" name="address" required></textarea>
+                </td>
+                <td>
+				<div id="addressErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Email Id
+                </td>
+                <td>
+                    <input type="email" maxlength="30" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                        id="email" name="email" required>
+                </td>
+                <td>
+				<div id="mailErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    Enter Password
+                </td>
+                <td>
+                    <input type="password" maxlength="20" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,20})"
+                        id="password" name="password" required>
+                </td>
+                <td>
+				<div id="passErrMsg" class="errMessage"></div>
+				</td>
+                
+            </tr>
+            <tr>
+                <td>
+                    Confirm Password
+                </td>
+                <td>
+                    <input type="password" maxlength="20" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,20})" id="confirmPass" name="confirmPass" required>
+                </td>
+                <td>
+				<div id="cpassErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    Security Questions
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The city in which you were raised
+                </td>
+                <td>
+                    <input type="password" maxlength="20" pattern="([a-zA-Z])*" id="firstSecurityQuestion" name="firstSecurityQuestion" required>
+                </td>
+                <td>
+				<div id="fsqErrMsg" class="errMessage"></div>
+				</td>
+                
+            </tr>
+            <tr>
+                <td>
+                    Name of your school teacher
+                </td>
+                <td>
+                    <input type="password" maxlength="20" pattern="([a-zA-Z])*" id="secondSecurityQuestion" name="secondSecurityQuestion" required>
+                </td>
+                <td>
+				<div id="ssqErrMsg" class="errMessage"></div>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" class="btn" value="Create Account" [disabled]="accountForm.invalid"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</html>
